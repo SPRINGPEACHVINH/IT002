@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 class String
 {
@@ -14,7 +14,7 @@ public:
     int strlen(const char *);
     char *strcat(char *, const char *);
     String dao();
-    String noi(String);
+    String operator+(String &);
     String to_upper();
     String to_lower();
     friend istream &operator>>(istream &, String &);
@@ -75,7 +75,18 @@ String String::dao()
     delete[] newStr;
     return result;
 }
-
+// String String::operator+(const String &St2)
+// {
+//     char *TempStr = new char[Len + St2.Len + 1];
+//     char *str1 = new char[Len + 1];
+//     strcpy(str1, Str);
+//     char *str2 = new char[St2.Len + 1];
+//     strcpy(str2, St2.Str);
+//     strcat(str1, str2);
+//     strcpy(TempStr, str1);
+//     String res(TempStr);
+//     return res;
+// }
 istream &operator>>(istream &is, String &str)
 {
     char buffer[1000];

@@ -90,10 +90,12 @@ public:
         is >> cd.month;
         cout << "Nhap nam: ";
         is >> cd.year;
+        return is;
     }
-    friend ostream &operator<<(ostream &os, CDate &cd)
+    friend ostream &operator<<(ostream &os, CDate cd)
     {
         os << cd.day << ":" << cd.month << ":" << cd.year << ":" << '\n';
+        return os;
     }
     int GetDay()
     {

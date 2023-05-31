@@ -22,7 +22,7 @@ public:
         is >> ct.second;
         return is;
     }
-    friend ostream &operator<<(ostream &os, CTime &ct)
+    friend ostream &operator<<(ostream &os, CTime ct)
     {
         os << ct.hour << ":" << ct.minute << ":" << ct.second << "\n";
         return os;
