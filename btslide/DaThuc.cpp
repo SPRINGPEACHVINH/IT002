@@ -42,69 +42,9 @@ public:
     {
         this->heso = heso;
     }
-    void nhap()
-    {
-        int n;
-        cout << "Nhap bac cua da thuc: ";
-        cin >> n;
-        heso.clear();
-        for (int i = 0; i <= n; i++)
-        {
-            int temp;
-            cout << "Nhap he so cua x^" << i << ": ";
-            cin >> temp;
-            heso.push_back(temp);
-        }
-    }
     void xuat()
     {
-        for (int i = bac_cua_DaThuc(); i >= 0; i--)
-        {
-            if (he_so(i) != 0)
-            {
-                if (he_so(i) == 1)
-                {
-                    if (i == bac_cua_DaThuc())
-                    {
-                        cout << "x^" << i;
-                    }
-                    else if (i == 1)
-                    {
-                        cout << " + "
-                             << "x";
-                    }
-                    else if (i == 0)
-                    {
-                        cout << " + " << he_so(i);
-                    }
-                    else
-                    {
-                        cout << " + "
-                             << "x^" << i;
-                    }
-                }
-                else
-                {
-                    if (i == bac_cua_DaThuc())
-                    {
-                        cout << he_so(i) << "x^" << i;
-                    }
-                    else if (i == 1)
-                    {
-                        cout << " + " << he_so(i) << "x";
-                    }
-                    else if (i == 0)
-                    {
-                        cout << " + " << he_so(i);
-                    }
-                    else
-                    {
-                        cout << " + " << he_so(i) << "x^" << i;
-                    }
-                }
-            }
-        }
-        cout << '\n';
+        
     }
     int bac_cua_DaThuc()
     {
@@ -123,13 +63,69 @@ public:
     }
     friend istream &operator>>(istream &is, DaThuc &d)
     {
-        d.nhap();
+        int n;
+        cout << "Nhap bac cua da thuc: ";
+        cin >> n;
+        d.heso.clear();
+        for (int i = 0; i <= n; i++)
+        {
+            int temp;
+            cout << "Nhap he so cua x^" << i << ": ";
+            cin >> temp;
+            d.heso.push_back(temp);
+        }
         return is;
     }
 
     friend ostream &operator<<(ostream &os, DaThuc &d)
     {
-        d.xuat();
+        for (int i = d.bac_cua_DaThuc(); i >= 0; i--)
+        {
+            if (d.he_so(i) != 0)
+            {
+                if (d.he_so(i) == 1)
+                {
+                    if (i == d.bac_cua_DaThuc())
+                    {
+                        os << "x^" << i;
+                    }
+                    else if (i == 1)
+                    {
+                        os << " + "
+                             << "x";
+                    }
+                    else if (i == 0)
+                    {
+                        os << " + " << d.he_so(i);
+                    }
+                    else
+                    {
+                        os << " + "
+                             << "x^" << i;
+                    }
+                }
+                else
+                {
+                    if (i == d.bac_cua_DaThuc())
+                    {
+                        os << d.he_so(i) << "x^" << i;
+                    }
+                    else if (i == 1)
+                    {
+                        os << " + " << d.he_so(i) << "x";
+                    }
+                    else if (i == 0)
+                    {
+                        os << " + " << d.he_so(i);
+                    }
+                    else
+                    {
+                        os << " + " << d.he_so(i) << "x^" << i;
+                    }
+                }
+            }
+        }
+        os << '\n';
         return os;
     }
     DaThuc operator+(DaThuc d)
