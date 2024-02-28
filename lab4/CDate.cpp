@@ -2,20 +2,23 @@
 using namespace std;
 void fix(int &day, int &month, int &year)
 {
-    while (day > 30)
+    if (day > 30)
     {
         if (month == 2 || month == 4 || month == 6 || month == 9 || month == 11)
         {
             month++;
+            day -= 30;
         }
-        while (day > 31)
+        else if (day > 31)
         {
             if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+            {
                 month++;
+                day -= 30;
+            }
         }
-        day -= 30;
     }
-    if (day > 28)
+    else if (day > 28)
     {
         if (month == 2)
         {
